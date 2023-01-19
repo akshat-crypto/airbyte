@@ -30,9 +30,9 @@ services:
       - LOG_LEVEL=${LOG_LEVEL}
     networks:
       - airbyte_internal
-    depends_on:
-      init:
-        condition: service_completed_successfully
+    # depends_on:
+    #   init:
+    #     condition: service_completed_successfully
   db:
     image: airbyte/db:${VERSION}
     logging: *default-logging
@@ -117,9 +117,9 @@ services:
       - 9000
     networks:
       - airbyte_internal
-    depends_on:
-      bootloader:
-        condition: service_completed_successfully
+    # depends_on:
+    #   bootloader:
+    #     condition: service_completed_successfully
   server:
     image: airbyte/server:${VERSION}
     logging: *default-logging
@@ -162,9 +162,9 @@ services:
       - ${LOCAL_ROOT}:${LOCAL_ROOT}
     networks:
       - airbyte_internal
-    depends_on:
-      bootloader:
-        condition: service_completed_successfully
+    # depends_on:
+    #   bootloader:
+    #     condition: service_completed_successfully
   webapp:
     image: airbyte/webapp:${VERSION}
     logging: *default-logging
@@ -184,9 +184,9 @@ services:
       - TRACKING_STRATEGY=${TRACKING_STRATEGY}
     networks:
       - airbyte_internal
-    depends_on:
-      bootloader:
-        condition: service_completed_successfully
+    # depends_on:
+    #   bootloader:
+    #     condition: service_completed_successfully
   airbyte-temporal:
     image: airbyte/temporal:${VERSION}
     logging: *default-logging
@@ -226,9 +226,9 @@ services:
       - workspace:${WORKSPACE_ROOT}
     networks:
       - airbyte_internal
-    depends_on:
-      bootloader:
-        condition: service_completed_successfully
+    # depends_on:
+    #   bootloader:
+    #     condition: service_completed_successfully
   airbyte-connector-builder-server:
     image: airbyte/connector-builder-server:${VERSION}
     logging: *default-logging
@@ -240,9 +240,9 @@ services:
       - AIRBYTE_VERSION=${VERSION}
     networks:
       - airbyte_internal
-    depends_on:
-      bootloader:
-        condition: service_completed_successfully
+    # depends_on:
+    #   bootloader:
+    #     condition: service_completed_successfully
   airbyte-proxy:
     image: airbyte/proxy:${VERSION}
     container_name: airbyte-proxy
